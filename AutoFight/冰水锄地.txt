@@ -1,0 +1,22 @@
+// 作者:maomao
+// 描述:[记得打开独立任务重万叶吸材料]钟离,堆高充能和生命。芙宁娜,黄金剧团,不需要充能,堆高伤害。万叶,堆伤害和充能，建议风套+西风。芭芭拉,堆高生命,建议带金珀。夏洛蒂可替换芭芭拉，堆高攻击和充能即可
+
+莱依拉 e,wait(0.2), keypress(q),wait(0.2),keypress(q),attack(0.2),keypress(q),attack(0.2)
+
+茜特菈莉 attack(0.01),e, click(middle),keypress(e),attack(0.1),keypress(e),keypress(q),attack(0.2),keypress(e),keypress(q),wait(0.2),keypress(e),keypress(q),attack(0.2)
+
+杜林 attack(0.1), keypress(q), attack(0.2), click(middle), e, wait(0.2), e, keypress(q), wait(0.2), keypress(q), attack(0.2), keypress(q), attack(0.2)
+
+芙宁娜 attack(0.01),e,click(middle),s(0.45),w(0.01),keypress(e),wait(1.5)
+
+枫原万叶 attack(0.2),keydown(E),wait(0.48),keyup(E),attack(0.33),wait(0.5),attack(0.1)
+
+雅珂达 e,wait(0.2), keypress(q),wait(0.2),keypress(q),attack(0.2),keypress(q),attack(0.2)
+
+爱可菲 attack(0.1),e,attack(0.2),click(middle),s(0.45),w(0.01),keypress(q),wait(1.5),attack
+
+芙宁娜 attack(0.01),e,wait(0.2),keypress(q),wait(2),attack
+
+枫原万叶 attack(0.08),keypress(q),wait(0.3),keypress(q),wait(0.3),attack(0.2),keydown(E),wait(0.48),keyup(E),attack(0.3), wait(0.8),attack(0.1)
+
+

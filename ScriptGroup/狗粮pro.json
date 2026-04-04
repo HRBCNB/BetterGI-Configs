@@ -1,0 +1,135 @@
+{
+  "index": 2,
+  "name": "狗粮pro",
+  "config": {
+    "pathingConfig": {
+      "enabled": true,
+      "autoPickEnabled": false,
+      "partyName": "狗粮",
+      "isVisitStatueBeforeSwitchParty": false,
+      "mainAvatarIndex": "",
+      "guardianAvatarIndex": "",
+      "guardianElementalSkillSecondInterval": "",
+      "guardianElementalSkillLongPress": false,
+      "onlyInTeleportRecover": false,
+      "jsScriptUseEnabled": true,
+      "soloTaskUseFightEnabled": true,
+      "skipDuring": "",
+      "useGadgetIntervalMs": 0,
+      "autoSkipEnabled": true,
+      "autoRunEnabled": true,
+      "autoEatEnabled": false,
+      "autoEatConfig": {
+        "enabled": false,
+        "showNotification": true,
+        "checkInterval": 150,
+        "eatInterval": 1000,
+        "testFoodName": null,
+        "defaultAtkBoostingDishName": "炸萝卜丸子",
+        "defaultAdventurersDishName": null,
+        "defaultDefBoostingDishName": null
+      },
+      "hideOnRepeat": false,
+      "taskCycleConfig": {
+        "enable": false,
+        "boundaryTime": 0,
+        "isBoundaryTimeBasedOnServerTime": false,
+        "cycle": 1,
+        "index": 1
+      },
+      "taskCompletionSkipRuleConfig": {
+        "enable": false,
+        "skipPolicy": "GroupPhysicalPathSkipPolicy",
+        "boundaryTime": 4,
+        "isBoundaryTimeBasedOnServerTime": false,
+        "lastRunGapSeconds": -1,
+        "referencePoint": "EndTime"
+      },
+      "preExecutionPriorityConfig": {
+        "enabled": false,
+        "groupNames": "",
+        "maxRetryCount": 1
+      },
+      "autoFightEnabled": false,
+      "autoFightConfig": {
+        "strategyName": "",
+        "teamNames": "",
+        "fightFinishDetectEnabled": true,
+        "actionSchedulerByCd": "",
+        "onlyPickEliteDropsMode": "Closed",
+        "finishDetectConfig": {
+          "battleEndProgressBarColor": "",
+          "battleEndProgressBarColorTolerance": "",
+          "fastCheckEnabled": false,
+          "rotateFindEnemyEnabled": false,
+          "fastCheckParams": "",
+          "checkEndDelay": "",
+          "beforeDetectDelay": "",
+          "rotaryFactor": 10,
+          "isFirstCheck": false,
+          "checkBeforeBurst": false
+        },
+        "pickDropsAfterFightEnabled": false,
+        "pickDropsAfterFightSeconds": 15,
+        "battleThresholdForLoot": null,
+        "kazuhaPickupEnabled": false,
+        "qinDoublePickUp": false,
+        "guardianAvatar": "",
+        "guardianCombatSkip": false,
+        "skipModel": false,
+        "guardianAvatarHold": false,
+        "burstEnabled": false,
+        "kazuhaPartyName": "",
+        "swimmingEnabled": false,
+        "timeout": 120
+      }
+    },
+    "shellConfig": {
+      "disable": false,
+      "timeout": 60,
+      "noWindow": true,
+      "output": true
+    },
+    "enableShellConfig": false
+  },
+  "projects": [
+    {
+      "name": "AAA狗粮批发",
+      "folderName": "AAA-Artifacts-Bulk-Supply",
+      "jsScriptSettingsObject": {
+        "artifactPartyName": "狗粮",
+        "minIntervalTime": "1",
+        "maxWaitingTime": "0",
+        "decomposeMode": "分解（经验瓶）",
+        "accountName": "默认账户",
+        "TMthreshold": "0.9",
+        "combatPartyName": "",
+        "keep4Star": false,
+        "findFInterval": "100"
+      },
+      "index": 1,
+      "type": "Javascript",
+      "status": "Enabled",
+      "schedule": "Daily",
+      "runNum": 1,
+      "allowJsNotification": true,
+      "allowJsHTTPHash": ""
+    },
+    {
+      "name": "锁定四星教官",
+      "folderName": "AutoInstructorLock",
+      "jsScriptSettingsObject": {
+        "scrollTimes": "0",
+        "scrollLoops": "37",
+        "chargeOnly": true
+      },
+      "index": 2,
+      "type": "Javascript",
+      "status": "Enabled",
+      "schedule": "Daily",
+      "runNum": 1,
+      "allowJsNotification": true,
+      "allowJsHTTPHash": ""
+    }
+  ]
+}

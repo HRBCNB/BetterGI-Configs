@@ -1,0 +1,133 @@
+{
+  "index": 7,
+  "name": "锄地一条龙 精英怪战斗策略",
+  "config": {
+    "pathingConfig": {
+      "enabled": true,
+      "autoPickEnabled": true,
+      "partyName": "冰水锄地",
+      "isVisitStatueBeforeSwitchParty": false,
+      "mainAvatarIndex": "",
+      "guardianAvatarIndex": "",
+      "guardianElementalSkillSecondInterval": "",
+      "guardianElementalSkillLongPress": false,
+      "onlyInTeleportRecover": false,
+      "jsScriptUseEnabled": true,
+      "soloTaskUseFightEnabled": true,
+      "skipDuring": "",
+      "useGadgetIntervalMs": 0,
+      "autoSkipEnabled": true,
+      "autoRunEnabled": true,
+      "autoEatEnabled": false,
+      "autoEatConfig": {
+        "enabled": false,
+        "showNotification": true,
+        "checkInterval": 150,
+        "eatInterval": 1000,
+        "testFoodName": null,
+        "defaultAtkBoostingDishName": null,
+        "defaultAdventurersDishName": null,
+        "defaultDefBoostingDishName": null
+      },
+      "hideOnRepeat": false,
+      "taskCycleConfig": {
+        "enable": false,
+        "boundaryTime": 0,
+        "isBoundaryTimeBasedOnServerTime": false,
+        "cycle": 1,
+        "index": 1
+      },
+      "taskCompletionSkipRuleConfig": {
+        "enable": false,
+        "skipPolicy": "GroupPhysicalPathSkipPolicy",
+        "boundaryTime": 4,
+        "isBoundaryTimeBasedOnServerTime": false,
+        "lastRunGapSeconds": -1,
+        "referencePoint": "EndTime"
+      },
+      "preExecutionPriorityConfig": {
+        "enabled": false,
+        "groupNames": "",
+        "maxRetryCount": 1
+      },
+      "autoFightEnabled": true,
+      "autoFightConfig": {
+        "strategyName": "冰水锄地",
+        "teamNames": "",
+        "fightFinishDetectEnabled": true,
+        "actionSchedulerByCd": "芙宁娜,20;茜特菈莉,16;爱可菲,15;枫原万叶,9;莱依拉,12;杜林,18",
+        "onlyPickEliteDropsMode": "AllowAutoPickupForNonElite",
+        "finishDetectConfig": {
+          "battleEndProgressBarColor": "",
+          "battleEndProgressBarColorTolerance": "",
+          "fastCheckEnabled": true,
+          "rotateFindEnemyEnabled": true,
+          "fastCheckParams": "0.6",
+          "checkEndDelay": "0.15",
+          "beforeDetectDelay": "0.45",
+          "rotaryFactor": 10,
+          "isFirstCheck": false,
+          "checkBeforeBurst": true
+        },
+        "pickDropsAfterFightEnabled": false,
+        "pickDropsAfterFightSeconds": 5,
+        "battleThresholdForLoot": null,
+        "kazuhaPickupEnabled": true,
+        "qinDoublePickUp": false,
+        "guardianAvatar": "1",
+        "guardianCombatSkip": true,
+        "skipModel": false,
+        "guardianAvatarHold": false,
+        "burstEnabled": true,
+        "kazuhaPartyName": "",
+        "swimmingEnabled": false,
+        "timeout": 45
+      }
+    },
+    "shellConfig": {
+      "disable": false,
+      "timeout": 60,
+      "noWindow": true,
+      "output": true
+    },
+    "enableShellConfig": false
+  },
+  "projects": [
+    {
+      "name": "锄地一条龙",
+      "folderName": "AutoHoeingOneDragon",
+      "jsScriptSettingsObject": {
+        "operationMode": "运行锄地路线",
+        "groupIndex": "路径组一",
+        "pickup_Mode": "模板匹配拾取，拾取狗粮和怪物材料",
+        "pickupDelay": "50",
+        "rollingDelay": "32",
+        "timeMove": "1000",
+        "accountName": "默认账户",
+        "tagsForGroup1": "蕈兽，传奇",
+        "efficiencyIndex": "0.5",
+        "targetEliteNum": "400",
+        "targetMonsterNum": "2000",
+        "partyName": "冰水锄地",
+        "activeDumperMode": "芙宁娜，爱可菲",
+        "disableSelfOptimization": false,
+        "tagsForGroup2": "小怪",
+        "findFInterval": "100",
+        "eEfficiencyIndex": "2.5",
+        "mEfficiencyIndex": "0.5",
+        "splitFactor": "0",
+        "sortMode": "高收益优先",
+        "curiosityFactor": "0",
+        "ignoreRate": "100",
+        "targetMonsters": ""
+      },
+      "index": 1,
+      "type": "Javascript",
+      "status": "Enabled",
+      "schedule": "Daily",
+      "runNum": 1,
+      "allowJsNotification": true,
+      "allowJsHTTPHash": ""
+    }
+  ]
+}
