@@ -6,7 +6,7 @@
       "enabled": true,
       "autoPickEnabled": true,
       "partyName": "冰水锄地",
-      "isVisitStatueBeforeSwitchParty": false,
+      "isVisitStatueBeforeSwitchParty": true,
       "mainAvatarIndex": "",
       "guardianAvatarIndex": "",
       "guardianElementalSkillSecondInterval": "",

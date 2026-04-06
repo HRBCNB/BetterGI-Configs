@@ -2,10 +2,10 @@
   "TaskEnabledList": {
     "领取邮件": true,
     "合成树脂": true,
-    "领取每日奖励": true,
-    "领取尘歌壶奖励": true,
-    "锻造": true,
     "自动秘境": true,
+    "锻造": true,
+    "领取尘歌壶奖励": true,
+    "领取每日奖励": true,
     "自动幽境危战": false,
     "狗粮pro": true,
     "好感度": true,
@@ -22,7 +22,7 @@
   "MinResinToKeep": 0,
   "SundayEverySelectedValue": "",
   "SundaySelectedValue": "",
-  "SereniteaPotTpType": "尘歌壶道具",
+  "SereniteaPotTpType": "地图传送",
   "SecretTreasureObjects": [
     "每天重复",
     "须臾树脂",
