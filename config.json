@@ -326,9 +326,9 @@
     "webviewHeight": 682,
     "webviewLeft": 34.5,
     "webviewTop": 94,
-    "webviewState": 0,
+    "webviewState": 2,
     "guideStatus": true,
-    "autoUpdateSubscribedScripts": false,
+    "autoUpdateSubscribedScripts": true,
     "autoUpdateBeforeCommandLineRun": false
   },
   "pathingConditionConfig": {
