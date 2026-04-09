@@ -1,0 +1,123 @@
+{
+  "index": 9,
+  "name": "自动钓鱼",
+  "config": {
+    "pathingConfig": {
+      "enabled": true,
+      "autoPickEnabled": true,
+      "partyName": "",
+      "isVisitStatueBeforeSwitchParty": false,
+      "mainAvatarIndex": "",
+      "guardianAvatarIndex": "",
+      "guardianElementalSkillSecondInterval": "",
+      "guardianElementalSkillLongPress": false,
+      "onlyInTeleportRecover": false,
+      "jsScriptUseEnabled": true,
+      "soloTaskUseFightEnabled": true,
+      "skipDuring": "",
+      "useGadgetIntervalMs": 0,
+      "autoSkipEnabled": true,
+      "autoRunEnabled": true,
+      "autoEatEnabled": false,
+      "autoEatConfig": {
+        "enabled": false,
+        "showNotification": true,
+        "checkInterval": 150,
+        "eatInterval": 1000,
+        "testFoodName": null,
+        "defaultAtkBoostingDishName": "炸萝卜丸子",
+        "defaultAdventurersDishName": null,
+        "defaultDefBoostingDishName": null
+      },
+      "hideOnRepeat": false,
+      "taskCycleConfig": {
+        "enable": true,
+        "boundaryTime": 0,
+        "isBoundaryTimeBasedOnServerTime": false,
+        "cycle": 1,
+        "index": 1
+      },
+      "taskCompletionSkipRuleConfig": {
+        "enable": false,
+        "skipPolicy": "GroupPhysicalPathSkipPolicy",
+        "boundaryTime": 4,
+        "isBoundaryTimeBasedOnServerTime": false,
+        "lastRunGapSeconds": -1,
+        "referencePoint": "EndTime"
+      },
+      "preExecutionPriorityConfig": {
+        "enabled": false,
+        "groupNames": "",
+        "maxRetryCount": 1
+      },
+      "autoFightEnabled": false,
+      "autoFightConfig": {
+        "strategyName": "",
+        "teamNames": "",
+        "fightFinishDetectEnabled": true,
+        "actionSchedulerByCd": "",
+        "onlyPickEliteDropsMode": "Closed",
+        "finishDetectConfig": {
+          "battleEndProgressBarColor": "",
+          "battleEndProgressBarColorTolerance": "",
+          "fastCheckEnabled": false,
+          "rotateFindEnemyEnabled": false,
+          "fastCheckParams": "",
+          "checkEndDelay": "",
+          "beforeDetectDelay": "",
+          "rotaryFactor": 10,
+          "isFirstCheck": false,
+          "checkBeforeBurst": false
+        },
+        "pickDropsAfterFightEnabled": false,
+        "pickDropsAfterFightSeconds": 15,
+        "battleThresholdForLoot": null,
+        "kazuhaPickupEnabled": true,
+        "qinDoublePickUp": false,
+        "guardianAvatar": "",
+        "guardianCombatSkip": false,
+        "skipModel": false,
+        "guardianAvatarHold": false,
+        "burstEnabled": false,
+        "kazuhaPartyName": "",
+        "swimmingEnabled": false,
+        "timeout": 120
+      }
+    },
+    "shellConfig": {
+      "disable": false,
+      "timeout": 60,
+      "noWindow": true,
+      "output": true
+    },
+    "enableShellConfig": false
+  },
+  "projects": [
+    {
+      "name": "提瓦特自动钓鱼（全流程+自选）",
+      "folderName": "AutoFishingTeyvat",
+      "jsScriptSettingsObject": {
+        "show_info_title_1": "⏬⏬⏬⏬⏬⏬挪德卡莱垂钓点暂不可用⏬⏬⏬⏬⏬⏬",
+        "block_gcm": false,
+        "block_fight": false,
+        "block_tsurumi": false,
+        "show_info_title_2": "⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬",
+        "time_out_throw": "10",
+        "time_out_whole": "300",
+        "show_info_title_3": "⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬",
+        "auto_pick": true,
+        "auto_skip": true,
+        "fishing_cd": true,
+        "show_info_title_4": "⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬",
+        "path_sort_material": "无(默认)"
+      },
+      "index": 1,
+      "type": "Javascript",
+      "status": "Enabled",
+      "schedule": "Daily",
+      "runNum": 1,
+      "allowJsNotification": true,
+      "allowJsHTTPHash": ""
+    }
+  ]
+}
