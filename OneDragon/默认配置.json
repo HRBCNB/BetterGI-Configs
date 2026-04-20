@@ -2,7 +2,7 @@
   "TaskEnabledList": {
     "领取邮件": true,
     "合成树脂": true,
-    "自动秘境": true,
+    "自动秘境": false,
     "锻造": true,
     "领取尘歌壶奖励": true,
     "领取每日奖励": true,

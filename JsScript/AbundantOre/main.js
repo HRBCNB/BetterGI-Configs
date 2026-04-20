@@ -18,53 +18,58 @@ function forge_pathing_end_log(name, elapsed_time) {
     log.debug(c);
 }
 
+const use_global_mining_action = settings.custom_mining_action === "默认" || settings.custom_mining_action === "default";
+
+const linnea_chs_name = "莉奈娅";
+
+const country_name_tag_map = {
+    "蒙德": "mondstadt",
+    "璃月": "liyue",
+    "层岩巨渊地下矿区": "chasm underground",
+    "稻妻": "inazuma",
+    "渊下宫": "enkanomiya",
+    "须弥": "sumeru",
+    "枫丹地面": "fontaine terrestrial",
+    "枫丹水下": "fontaine underwater",
+    "旧日之海水下": "sea of bygone eras underwater",
+    "纳塔": "natlan",
+    "远古圣山": "ancient sacred mountain",
+    "挪德卡莱": "nod-krai",
+};
+
 function get_exclude_tags() {
+    const ore_name_tag_map = {
+        "水晶块": "crystal chunk",
+        "紫晶块": "amethyst lump",
+        "萃凝晶": "condessence crystal",
+        "虹滴晶": "rainbowdrop crystal",
+    };
     let tags = [];
     if (settings.fight_option === "全跳过") {
         tags.push("fight");
     } else if (settings.fight_option === "只跳过与精英怪战斗的路线") {
         tags.push("elite enemy");
     }
-    if (settings.exclude_nod_krai) {
-        tags.push("nod-krai");
+    for (const [i, j] of Object.entries(country_name_tag_map)) {
+        if (Array.from(settings.exclude_regions).includes(i)) {
+            tags.push(j);
+        }
     }
-    if (settings.exclude_natlan) {
-        tags.push("natlan");
-    }
-    if (settings.exclude_fontaine_underwater) {
-        tags.push("fontaine underwater");
-    }
-    if (settings.exclude_fontaine_terrestrial) {
-        tags.push("fontaine terrestrial");
-    }
-    if (settings.exclude_sumeru) {
-        tags.push("sumeru");
-    }
-    if (settings.exclude_inazuma) {
-        tags.push("inazuma");
-    }
-    if (settings.exclude_liyue) {
-        tags.push("liyue");
-    }
-    if (settings.exclude_chasm_underground) {
-        tags.push("chasm underground");
-    }
-    if (settings.exclude_mondstadt) {
-        tags.push("mondstadt");
-    }
-    if (settings.exclude_crystal_chunks) {
-        tags.push("crystal chunk");
-    }
-    if (settings.exclude_condessence_crystals) {
-        tags.push("condessence crystal");
-    }
-    if (settings.exclude_amethyst_lumps) {
-        tags.push("amethyst lump");
-    }
-    if (settings.exclude_rainbowdrop_crystals) {
-        tags.push("rainbowdrop crystal");
+    for (const [i, j] of Object.entries(ore_name_tag_map)) {
+        if (Array.from(settings.exclude_ore_types).includes(i)) {
+            tags.push(j);
+        }
     }
     return tags;
+}
+
+function underwater_only() {
+    const all_regions = new Set(Object.keys(country_name_tag_map));
+    const skipped_regions = new Set(settings.exclude_regions);
+    const not_skipped_regions = all_regions.difference(skipped_regions);
+    not_skipped_regions.delete("枫丹水下");
+    not_skipped_regions.delete("旧日之海水下");
+    return not_skipped_regions.size === 0;
 }
 
 function get_profile_name() {
@@ -151,6 +156,22 @@ function load_flaky_end_paths() {
         }
         flaky_end_paths.add(l);
     }
+}
+
+let linnea_override_config = {};
+
+function load_linnea_override_config() {
+    const basedir = "assets/path_override/linnea/";
+    const c = JSON.parse(file.readTextSync(basedir + "config.json"));
+    for (const [k, v] of Object.entries(c)) {
+        if (v.hasOwnProperty("file")) {
+            v["file"] = basedir + v["file"];
+            if (!v.hasOwnProperty("mining_dist_threshold")) {
+                v["mining_dist_threshold"] = 0.0;
+            }
+        }
+    }
+    linnea_override_config = c;
 }
 
 async function flush_persistent_data() {
@@ -347,14 +368,212 @@ async function get_inventory() {
 
 let last_script_end_pos = [null, null];
 let last_script_normal_completion = true;
+let mining_character = null;
+let fallback_claymore_character = null;
 
-async function run_pathing_script(name, path_state_change, current_states) {
+function modify_script_for_claymores(json_content) {
+    const json_obj = JSON.parse(json_content);
+    let modified = false;
+    for (const i of json_obj.positions) {
+        if (i.action !== "mining") {
+            continue;
+        }
+        if (settings.custom_mining_action) {
+            i.action = "combat_script";
+            i.action_params = settings.custom_mining_action;
+            modified = true;
+        } else if (mining_character === "诺艾尔") {
+            i.action = "combat_script";
+            i.action_params = "诺艾尔 attack(2.0)";
+            modified = true;
+        }
+    }
+    if (modified) {
+        log.debug("Patched mining action");
+        json_content = JSON.stringify(json_obj);
+    }
+    return json_content;
+}
+
+async function modify_script_for_linnea(json_content, override_config) {
+    const linnea_mining_action = `${linnea_chs_name} moveby(0,2500),charge(0.6),click(middle)`;
+    const claymore_mining_actions = {
+        "诺艾尔": "attack(2.0)",
+        "迪希雅": "attack(0.6),mousedown,wait(2.1),mouseup,j",
+        "玛薇卡": "attack(0.20),j,wait(0.5),attack(0.6)",
+    };
+    const fallback_mining_action = fallback_claymore_character ? (fallback_claymore_character + " " + claymore_mining_actions[fallback_claymore_character]) : null;
+    let mining_dist_threshold = 7.5;
+    const additional_sleep_time_before_teleport = 1.2;
+    let pinned_mining_points = null;
+    let fallback_mining_points = null;
+
+    if (override_config) {
+        if (override_config.hasOwnProperty("file")) {
+            json_content = await file.readText(override_config["file"]);
+        }
+        if (override_config.hasOwnProperty("mining_dist_threshold")) {
+            mining_dist_threshold = override_config["mining_dist_threshold"];
+        }
+        if (override_config.hasOwnProperty("pinned_mining_points")) {
+            pinned_mining_points = override_config["pinned_mining_points"];
+        }
+        if (override_config.hasOwnProperty("fallback_mining_points") && fallback_mining_action !== null) {
+            fallback_mining_points = override_config["fallback_mining_points"];
+        }
+    }
+
+    const json_obj = JSON.parse(json_content);
+    const path_segments = [];
+    {
+        let segment = [];
+        let mining_counter = 0;
+        for (const i of json_obj.positions) {
+            if (i.type === "teleport") {
+                if (segment.length !== 0) {
+                    path_segments.push(segment);
+                    segment = [];
+                }
+            }
+            if (i.action === "mining") {
+                const is_pinned = pinned_mining_points !== null && pinned_mining_points.includes(mining_counter);
+                const is_fallback = fallback_mining_action !== null && fallback_mining_points !== null && fallback_mining_points.includes(mining_counter);
+                i.internal = {
+                    "mining_point_id": mining_counter,
+                    "is_pinned": is_pinned || is_fallback,
+                    "is_fallback": is_fallback,
+                };
+                mining_counter += 1;
+            }
+            segment.push(JSON.parse(JSON.stringify(i)));
+        }
+        if (segment.length !== 0) {
+            path_segments.push(segment);
+            segment = [];
+        }
+    }
+
+    const process_segment = (segment) => {
+        // Drop mining points around the pinned ones
+        const pinned_mining_pos = [];
+        for (const i of segment) {
+            if (i.action === "mining" && i.internal.is_pinned) {
+                pinned_mining_pos.push({
+                    x: i.x,
+                    y: i.y,
+                });
+            }
+        }
+        for (const i of segment) {
+            if (i.action === "mining" && !i.internal.is_pinned) {
+                for (const j of pinned_mining_pos) {
+                    const dist = Math.hypot(i.x - j.x, i.y - j.y);
+                    if (dist < mining_dist_threshold) {
+                        i.type = "path";
+                        i.action = "";
+                        i.action_params = "";
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Skip some mining points
+        let last_linnea_mining_pos = null;
+        for (const i of segment) {
+            if (i.action !== "mining") {
+                continue;
+            }
+            if (i.internal.is_pinned) {
+                if (!i.internal.is_fallback) {
+                    last_linnea_mining_pos = {
+                        x: i.x,
+                        y: i.y
+                    };
+                }
+                continue;
+            }
+            const dist = last_linnea_mining_pos === null ? 9999 : Math.hypot(i.x - last_linnea_mining_pos.x, i.y - last_linnea_mining_pos.y);
+            if (dist < mining_dist_threshold) {
+                i.type = "path";
+                i.action = "";
+                i.action_params = "";
+            } else {
+                last_linnea_mining_pos = {
+                    x: i.x,
+                    y: i.y,
+                };
+            }
+        }
+
+        // Skip useless waypoints
+        for (let i = 0; i < segment.length; ++i) {
+            const wi = segment[i];
+            if (wi.action === "mining" && !wi.internal.is_fallback) {
+                let j = i + 1;
+                for (; j < segment.length; ++j) {
+                    const wj = segment[j];
+                    if (wj.type === "path" && wj.action === "" && Math.hypot(wj.x - wi.x, wj.y - wi.y) <= 10 ||
+                        wj.type === "target" && wj.action === "" && Math.hypot(wj.x - wi.x, wj.y - wi.y) <= 10 ||
+                        wj.action === "combat_script" && wj.action_params.match(/^wait\([0-9.]+\)$/g) ||
+                        wj.action === "pick_around") {} else {
+                        break;
+                    }
+                }
+                for (let k = i + 1; k < j; ++k) {
+                    if (!segment[k].internal) {
+                        segment[k].internal = {};
+                    }
+                    segment[k].internal.useless = true;
+                }
+            }
+        }
+        for (let i = segment.length - 1; i >= 0; --i) {
+            if (segment[i].internal?.useless) {
+                segment.splice(i, 1);
+            }
+        }
+
+        // patch mining actions
+        for (const [id, i] of segment.entries()) {
+            if (i.action === "mining") {
+                if (i.internal.is_fallback) {
+                    i.action = "combat_script";
+                    i.action_params = fallback_mining_action;
+                } else {
+                    i.action = "combat_script";
+                    i.action_params = linnea_mining_action;
+                    if (additional_sleep_time_before_teleport > 0.0 && id === segment.length - 1) {
+                        i.action_params += `;wait(${additional_sleep_time_before_teleport})`;
+                    }
+                }
+            }
+        }
+
+    };
+
+    const patched_positions = [];
+    for (const segment of path_segments) {
+        process_segment(segment);
+        for (const i of segment) {
+            const i_copy = JSON.parse(JSON.stringify(i));
+            delete i_copy.internal;
+            i_copy.id = patched_positions.length + 1;
+            patched_positions.push(i_copy);
+        }
+    }
+    json_obj.positions = patched_positions;
+
+    log.debug("Patched mining action for Linnea");
+    json_content = JSON.stringify(json_obj);
+    return json_content;
+}
+
+async function run_pathing_script(name, tags, path_state_change, current_states) {
     path_state_change ||= {};
     path_state_change.require ||= [];
     path_state_change.add ||= [];
     path_state_change.sustain ||= [];
-
-    const use_global_mining_action = settings.custom_mining_action === "默认" || settings.custom_mining_action === "default";
 
     for (const s of path_state_change.require) {
         if (!current_states.has(s)) {
@@ -362,7 +581,7 @@ async function run_pathing_script(name, path_state_change, current_states) {
             for (const [name, data] of Object.entries(statistics)) {
                 const add_states = data.state_change?.add || [];
                 if (add_states.includes(s)) {
-                    await run_pathing_script(name, data.state_change, current_states);
+                    await run_pathing_script(name, data.tags, data.state_change, current_states);
                     break;
                 }
             }
@@ -370,43 +589,28 @@ async function run_pathing_script(name, path_state_change, current_states) {
     }
     log.info("运行 {name}", name);
     let json_content = await file.readText(filename_to_path_map[name]);
-    {
-        const json_obj = JSON.parse(json_content);
-        let modified = false;
-        for (const i of json_obj.positions) {
-            if (use_global_mining_action) {
-                if (settings.custom_mining_action && i.action === "combat_script" && i.action_params.includes("诺艾尔 ")) {
-                    i.action = "mining";
-                    i.action_params = "";
-                    modified = true;
-                }
-            } else {
-                if (i.action === "mining") {
-                    // set Noelle mining action
-                    i.action = "combat_script";
-                    i.action_params = settings.custom_mining_action || "诺艾尔 attack(2.0)";
-                    modified = true;
-                } else if (settings.custom_mining_action && i.action === "combat_script" && i.action_params.includes("诺艾尔 ")) {
-                    i.action_params = settings.custom_mining_action;
-                    modified = true;
-                }
-            }
-        }
-        if (modified) {
-            log.debug("Patched mining action");
-            json_content = JSON.stringify(json_obj);
-        }
+    if (use_global_mining_action || tags.includes("fontaine underwater") || tags.includes("sea of bygone eras underwater")) {
+        // nop
+    } else if (settings.custom_mining_action || mining_character === "诺艾尔") {
+        json_content = modify_script_for_claymores(json_content);
+    } else if (mining_character === linnea_chs_name) {
+        json_content = await modify_script_for_linnea(json_content, linnea_override_config[name] || null);
     }
+
     const cancellation_token = dispatcher.getLinkedCancellationToken();
     const t0 = Date.now();
     forge_pathing_start_log(name);
     await pathingScript.run(json_content);
+    await sleep(1000);
     const elapsed_time = Date.now() - t0;
     forge_pathing_end_log(name, elapsed_time);
     if (!cancellation_token.isCancellationRequested) {
         const curr_pos = (() => {
             try {
                 const p = genshin.getPositionFromMap(JSON.parse(json_content).info.map_name);
+                if (p === null) {
+                    return [null, null];
+                }
                 return [p.X, p.Y];
             } catch (e) {}
             return [null, null];
@@ -459,13 +663,44 @@ async function main() {
     load_disabled_paths();
     load_statistics_data();
     load_flaky_end_paths();
+    load_linnea_override_config();
     dispatcher.addTimer(new RealtimeTimer("AutoPick"));
     // Run an empty pathing script to give BGI a chance to switch team if the user specifies one.
     await pathingScript.runFile("assets/empty_pathing.json");
-    if (["natlan", "fontaine terrestrial", "sumeru", "inazuma", "liyue", "chasm underground", "mondstadt"].filter(i => !get_exclude_tags().includes(i)).length > 0) {
-        if (!Array.from(getAvatars()).includes("诺艾尔") && !settings.custom_mining_action) {
-            log.error("地面挖矿请带诺艾尔");
+    if (!Object.keys(settings).includes("exclude_ore_types")) {
+        log.error("首次运行前请编辑JS脚本自定义配置");
+        return;
+    }
+    log.debug("Fight options: {a}", settings.fight_option);
+    log.debug("Exclude regions: {a}, exclude types: {b}", settings.exclude_regions, settings.exclude_ore_types);
+    log.debug("Exclude tags: {a}", get_exclude_tags());
+    log.debug("Underwater only: {a}", underwater_only());
+
+    const characters = Array.from(getAvatars());
+    if (characters.includes(linnea_chs_name) && (use_global_mining_action || (settings.custom_mining_action || "").includes(linnea_chs_name))) {
+        log.error("{l}挖矿请{no}填写自定义挖矿动作", linnea_chs_name, "勿");
+        return;
+    }
+    if (!underwater_only() && !settings.custom_mining_action) {
+        const preapproved_mining_characters = [linnea_chs_name, "诺艾尔"];
+        const preapproved_fallback_claymore_characters = ["诺艾尔", "玛薇卡", "迪希雅"];
+        for (const i of preapproved_mining_characters) {
+            if (characters.includes(i)) {
+                mining_character = i;
+                break;
+            }
+        }
+        if (mining_character === null) {
+            log.error("地面挖矿请带{c}", preapproved_mining_characters.join("或"));
             return;
+        }
+        if (mining_character === linnea_chs_name) {
+            for (const i of preapproved_fallback_claymore_characters) {
+                if (characters.includes(i)) {
+                    fallback_claymore_character = i;
+                    break;
+                }
+            }
         }
     }
 
@@ -555,7 +790,7 @@ async function main() {
         for (const [name, data] of tasks) {
             cached_inventory_data = null;
             try {
-                await run_pathing_script(name, data.state_change, current_states);
+                await run_pathing_script(name, data.tags, data.state_change, current_states);
             } catch (e) {
                 finished = true;
                 break;

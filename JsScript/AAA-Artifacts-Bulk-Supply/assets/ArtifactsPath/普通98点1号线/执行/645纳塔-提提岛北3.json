@@ -9,7 +9,7 @@
     "bgi_version": "0.45.0",
     "description": "",
     "enable_monster_loot_split": false,
-    "last_modified_time": 1758896833078,
+    "last_modified_time": 1771056820258,
     "map_match_method": "",
     "map_name": "Teyvat",
     "name": "645纳塔-提提岛北3",
@@ -96,15 +96,6 @@
       "id": 9,
       "move_mode": "climb",
       "type": "target",
-      "x": 15038.3603515625,
-      "y": 1630.52294921875
-    },
-    {
-      "action": "set_time",
-      "action_params": "06:00",
-      "id": 10,
-      "move_mode": "climb",
-      "type": "orientation",
       "x": 15038.3603515625,
       "y": 1630.52294921875
     }

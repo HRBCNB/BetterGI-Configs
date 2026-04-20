@@ -25,7 +25,7 @@
     "currentThemeType": 0,
     "currentBackdropType": 2,
     "isFirstRun": false,
-    "runForVersion": "0.59.1",
+    "runForVersion": "0.60.1",
     "onceHadRunDeviceIdList": [
       "WENYXY75Z0Z6T17NRZRGEBQ0FQX6TNVXJ51QWEBJYGYTQJCTM8DG",
       "TB3RWS4X29QWC6T12H59B0816XFVADA8XMYK71BM4WK3KHRCQVGG"
@@ -271,6 +271,7 @@
   },
   "mapMaskConfig": {
     "mapPointApiProvider": "MihoyoMap",
+    "hoYoLabLanguage": "en-us",
     "enabled": true,
     "miniMapMaskEnabled": false,
     "pathAutoRecordEnabled": false
@@ -317,16 +318,16 @@
   },
   "scriptConfig": {
     "autoUpdateScriptRepoPeriod": 1,
-    "lastUpdateScriptRepoTime": "2026-04-09T10:04:23.696305+08:00",
+    "lastUpdateScriptRepoTime": "2026-04-20T15:18:40.9542927+08:00",
     "scriptRepoHintDotVisible": true,
     "subscribedScriptPaths": [],
     "selectedChannelName": "GitCode",
     "customRepoUrl": "",
-    "webviewWidth": 1187,
-    "webviewHeight": 682,
-    "webviewLeft": 34.5,
-    "webviewTop": 94,
-    "webviewState": 2,
+    "webviewWidth": 1187.2,
+    "webviewHeight": 682.4000000000001,
+    "webviewLeft": 34.4,
+    "webviewTop": 94.4,
+    "webviewState": 0,
     "guideStatus": true,
     "autoUpdateSubscribedScripts": true,
     "autoUpdateBeforeCommandLineRun": false
@@ -597,11 +598,7 @@
       "logSyncCookie": true
     },
     "ocrConfig": {
-      "paddleOcrModelConfig": 2,
-      "allowDuplicateChar": false,
-      "useOcrMatchForPartySwitch": true,
-      "ocrMatchDefaultThreshold": 0.8,
-      "paddleOcrThreshold": 0.5
+      "paddleOcrModelConfig": 2
     },
     "gameCultureInfoName": "zh-Hans",
     "uiCultureInfoName": "zh-Hans"
