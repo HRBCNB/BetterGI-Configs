@@ -1,0 +1,14 @@
+# Runtime cache and temporary files
+Cache/
+Temp/
+
+# Pathing route data
+AutoPathing/
+
+# Common local/system artifacts
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
+*.swp
