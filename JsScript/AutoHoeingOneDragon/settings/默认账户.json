@@ -1,5 +1,4 @@
 {
-  "tagsForGroup1": "蕈兽，传奇",
   "tagsForGroup2": "小怪",
   "tagsForGroup3": "",
   "tagsForGroup4": "",
@@ -16,5 +15,5 @@
   "targetEliteNum": "400",
   "targetMonsterNum": "2000",
   "priorityTags": "",
-  "excludeTags": ""
+  "excludeTags": "蕈兽，传奇，狭窄地形"
 }

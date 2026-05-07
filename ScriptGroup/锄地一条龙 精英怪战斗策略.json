@@ -119,7 +119,11 @@
         "sortMode": "高收益优先",
         "curiosityFactor": "0",
         "ignoreRate": "100",
-        "targetMonsters": ""
+        "targetMonsters": "",
+        "onlyRelatedItems": false,
+        "disableSecondCheck": false,
+        "detectRevival": "0",
+        "detectHealthBar": "0"
       },
       "index": 1,
       "type": "Javascript",

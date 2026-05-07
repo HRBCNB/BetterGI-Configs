@@ -99,7 +99,11 @@
       "jsScriptSettingsObject": {
         "target_amount": "",
         "fight_option": "只跳过与精英怪战斗的路线",
-        "exclude_sumeru": false
+        "exclude_sumeru": false,
+        "exclude_regions": [
+          "须弥"
+        ],
+        "exclude_ore_types": []
       },
       "index": 1,
       "type": "Javascript",

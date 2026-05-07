@@ -5,8 +5,8 @@
     "pathingConfig": {
       "enabled": true,
       "autoPickEnabled": true,
-      "partyName": "锄地刷经验",
-      "isVisitStatueBeforeSwitchParty": true,
+      "partyName": "",
+      "isVisitStatueBeforeSwitchParty": false,
       "mainAvatarIndex": "",
       "guardianAvatarIndex": "",
       "guardianElementalSkillSecondInterval": "",
@@ -99,7 +99,7 @@
       "jsScriptSettingsObject": {
         "operationMode": "运行锄地路线",
         "groupIndex": "路径组二",
-        "pickup_Mode": "模板匹配拾取，只拾取狗粮",
+        "pickup_Mode": "模板匹配拾取，拾取狗粮和怪物材料",
         "pickupDelay": "50",
         "rollingDelay": "32",
         "timeMove": "1000",
@@ -132,7 +132,8 @@
         "onlyRelatedItems": false,
         "disableSecondCheck": false,
         "detectRevival": "0",
-        "detectHealthBar": "0"
+        "detectHealthBar": "0",
+        "logMonsterCount": false
       },
       "index": 1,
       "type": "Javascript",

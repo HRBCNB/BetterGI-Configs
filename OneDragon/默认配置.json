@@ -2,14 +2,14 @@
   "TaskEnabledList": {
     "领取邮件": true,
     "合成树脂": true,
-    "自动秘境": false,
+    "自动秘境": true,
     "锻造": true,
     "领取尘歌壶奖励": true,
     "领取每日奖励": true,
     "自动幽境危战": false,
     "狗粮pro": true,
     "好感度": true,
-    "晶蝶": true,
+    "晶蝶": false,
     "精油材料-青蛙": false
   },
   "Name": "默认配置",

@@ -30,7 +30,7 @@
       "WENYXY75Z0Z6T17NRZRGEBQ0FQX6TNVXJ51QWEBJYGYTQJCTM8DG",
       "TB3RWS4X29QWC6T12H59B0816XFVADA8XMYK71BM4WK3KHRCQVGG"
     ],
-    "redeemCodeFeedsUpdateVersion": "20260327\n"
+    "redeemCodeFeedsUpdateVersion": "20260424\n"
   },
   "genshinStartConfig": {
     "autoEnterGameEnabled": true,
@@ -318,7 +318,7 @@
   },
   "scriptConfig": {
     "autoUpdateScriptRepoPeriod": 1,
-    "lastUpdateScriptRepoTime": "2026-04-20T15:18:40.9542927+08:00",
+    "lastUpdateScriptRepoTime": "2026-05-07T12:00:14.8487892+08:00",
     "scriptRepoHintDotVisible": true,
     "subscribedScriptPaths": [],
     "selectedChannelName": "GitCode",
@@ -594,7 +594,7 @@
       "dailyMobCap": 2000
     },
     "miyousheConfig": {
-      "cookie": "_MHYUUID=c33b0ab4-5ff0-42e6-92af-52ec97968437; DEVICEFP_SEED_ID=87f91e5866c434a3; DEVICEFP_SEED_TIME=1763691715085; DEVICEFP=38d8143913692",
+      "cookie": "MHYUUID=8e5bee99-49c1-43c6-94d6-2de3793ad905; DEVICEFP_SEED_ID=0150e6e938b72403; DEVICEFP_SEED_TIME=1776907502135; DEVICEFP=38d817adc83e7; MIHOYO_LOGIN_PLATFORM_LIFECYCLE_ID=6eb842d0f1; cookie_token_v2=v2_ARxDfc3H0NlW9SiSL3pE_Rk8CvDZUg8hd0IJQ9dDTpSg7fE5Iovxu4ywGWXnGRcpKOJAArIzakpiFXkf5vFBx82YBy3Pn2Aw3C3GCo-f3uRDFud-xYZvVwYkfz0QEAYKT_qt9zsyP4opLAzb3kA=.CAE=; account_mid_v2=0abujdg4iv_mhy; account_id_v2=306505906; ltoken_v2=v2_gCMt0qQm2LGfJkcCtmSMIRbM37BqzqMPNOaBFy_hWUi00Cy7RSGW1gPl0Nue5eDPfqkN9YTHEDXMzOMfcTDjo8whNPCjgW47d-ivBUGhUXwYbEQd21r-mJRGl95ijQW73aEY_s5soEcX0V2gMw==.CAE=; ltmid_v2=0abujdg4iv_mhy; ltuid_v2=306505906; cookie_token=GBwLiTLPIvmgdvY3pIbOruVkQ5nrzsiav16aLZRj; account_id=306505906; ltoken=zPOp1ZpBHc7rzvSkr3W3yvYZG97ZRdyMgOnaxU0n; ltuid=306505906",
       "logSyncCookie": true
     },
     "ocrConfig": {

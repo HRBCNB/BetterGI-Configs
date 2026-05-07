@@ -106,7 +106,9 @@
         "ifXumi": "高效＆螃蟹模式",
         "ifFengdan": "高效＆螃蟹模式",
         "ifNata": "高效＆螃蟹模式",
-        "ifNDKL": "高效＆螃蟹模式"
+        "ifNDKL": "高效＆螃蟹模式",
+        "stove": "蒙德炉子",
+        "ifMine": "不采集"
       },
       "index": 1,
       "type": "Javascript",
