@@ -5,8 +5,8 @@
     "pathingConfig": {
       "enabled": true,
       "autoPickEnabled": true,
-      "partyName": "",
-      "isVisitStatueBeforeSwitchParty": false,
+      "partyName": "冰水锄地",
+      "isVisitStatueBeforeSwitchParty": true,
       "mainAvatarIndex": "",
       "guardianAvatarIndex": "",
       "guardianElementalSkillSecondInterval": "",
@@ -81,6 +81,7 @@
         "burstEnabled": true,
         "kazuhaPartyName": "",
         "swimmingEnabled": false,
+        "expBasedPickupEnabled": false,
         "timeout": 45
       }
     },

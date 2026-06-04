@@ -81,6 +81,7 @@
         "burstEnabled": false,
         "kazuhaPartyName": "",
         "swimmingEnabled": false,
+        "expBasedPickupEnabled": false,
         "timeout": 120
       }
     },
@@ -94,6 +95,22 @@
   },
   "projects": [
     {
+      "name": "锁定四星教官",
+      "folderName": "AutoInstructorLock",
+      "jsScriptSettingsObject": {
+        "scrollTimes": "0",
+        "scrollLoops": "37",
+        "chargeOnly": true
+      },
+      "index": 1,
+      "type": "Javascript",
+      "status": "Enabled",
+      "schedule": "Daily",
+      "runNum": 1,
+      "allowJsNotification": true,
+      "allowJsHTTPHash": ""
+    },
+    {
       "name": "AAA狗粮批发",
       "folderName": "AAA-Artifacts-Bulk-Supply",
       "jsScriptSettingsObject": {
@@ -106,22 +123,6 @@
         "combatPartyName": "",
         "keep4Star": false,
         "findFInterval": "100"
-      },
-      "index": 1,
-      "type": "Javascript",
-      "status": "Enabled",
-      "schedule": "Daily",
-      "runNum": 1,
-      "allowJsNotification": true,
-      "allowJsHTTPHash": ""
-    },
-    {
-      "name": "锁定四星教官",
-      "folderName": "AutoInstructorLock",
-      "jsScriptSettingsObject": {
-        "scrollTimes": "0",
-        "scrollLoops": "37",
-        "chargeOnly": true
       },
       "index": 2,
       "type": "Javascript",

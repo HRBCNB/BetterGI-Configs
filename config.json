@@ -25,12 +25,12 @@
     "currentThemeType": 0,
     "currentBackdropType": 2,
     "isFirstRun": false,
-    "runForVersion": "0.60.1",
+    "runForVersion": "0.61.2",
     "onceHadRunDeviceIdList": [
       "WENYXY75Z0Z6T17NRZRGEBQ0FQX6TNVXJ51QWEBJYGYTQJCTM8DG",
       "TB3RWS4X29QWC6T12H59B0816XFVADA8XMYK71BM4WK3KHRCQVGG"
     ],
-    "redeemCodeFeedsUpdateVersion": "20260424\n"
+    "redeemCodeFeedsUpdateVersion": "20260516\n"
   },
   "genshinStartConfig": {
     "autoEnterGameEnabled": true,
@@ -38,7 +38,8 @@
     "installPath": "D:\\Program Files\\miHoYo Launcher\\games\\Genshin Impact Game\\YuanShen.exe",
     "linkedStartEnabled": true,
     "recordGameTimeEnabled": false,
-    "startGameWithCmd": false
+    "startGameWithCmd": false,
+    "autoDisableGenshinHdrEnabled": true
   },
   "autoPickConfig": {
     "enabled": true,
@@ -55,6 +56,8 @@
     "enabled": true,
     "quicklySkipConversationsEnabled": true,
     "afterChooseOptionSleepDelay": 0,
+    "autoWaitDialogueOptionVoiceEnabled": false,
+    "dialogueOptionVoiceMaxWaitSeconds": 30,
     "beforeClickConfirmDelay": 0,
     "autoGetDailyRewardsEnabled": true,
     "autoReExploreEnabled": false,
@@ -160,6 +163,7 @@
     "burstEnabled": true,
     "kazuhaPartyName": "",
     "swimmingEnabled": false,
+    "expBasedPickupEnabled": false,
     "timeout": 45
   },
   "autoMusicGameConfig": {
@@ -262,7 +266,10 @@
       "swimmingEnabled": false,
       "kazuhaPickupEnabled": true,
       "qinDoublePickUp": false,
-      "timeout": 120
+      "timeout": 120,
+      "seekEnemyEnabled": false,
+      "seekEnemyIntervalSeconds": 3,
+      "seekEnemyRotaryFactor": 6
     }
   },
   "autoCookConfig": {
@@ -318,7 +325,7 @@
   },
   "scriptConfig": {
     "autoUpdateScriptRepoPeriod": 1,
-    "lastUpdateScriptRepoTime": "2026-05-07T12:00:14.8487892+08:00",
+    "lastUpdateScriptRepoTime": "2026-06-04T13:48:32.6664161+08:00",
     "scriptRepoHintDotVisible": true,
     "subscribedScriptPaths": [],
     "selectedChannelName": "GitCode",
@@ -665,5 +672,5 @@
   "nextScheduledTask": [
     {}
   ],
-  "selectedOneDragonFlowConfigName": "晚上锄地"
+  "selectedOneDragonFlowConfigName": "默认配置"
 }

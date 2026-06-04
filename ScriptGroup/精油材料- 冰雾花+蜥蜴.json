@@ -81,6 +81,7 @@
         "burstEnabled": false,
         "kazuhaPartyName": "",
         "swimmingEnabled": false,
+        "expBasedPickupEnabled": false,
         "timeout": 120
       }
     },
