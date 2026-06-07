@@ -5,7 +5,7 @@
     "pathingConfig": {
       "enabled": true,
       "autoPickEnabled": true,
-      "partyName": "冰水锄地",
+      "partyName": "",
       "isVisitStatueBeforeSwitchParty": true,
       "mainAvatarIndex": "",
       "guardianAvatarIndex": "",
@@ -109,7 +109,7 @@
         "efficiencyIndex": "0.5",
         "targetEliteNum": "400",
         "targetMonsterNum": "2000",
-        "partyName": "冰水锄地",
+        "partyName": "锄地刷经验",
         "activeDumperMode": "芙宁娜，爱可菲",
         "disableSelfOptimization": false,
         "tagsForGroup2": "小怪",
@@ -124,7 +124,8 @@
         "onlyRelatedItems": false,
         "disableSecondCheck": false,
         "detectRevival": "0",
-        "detectHealthBar": "0"
+        "detectHealthBar": "0",
+        "excludeTags": "蕈兽，传奇，狭窄地形"
       },
       "index": 1,
       "type": "Javascript",

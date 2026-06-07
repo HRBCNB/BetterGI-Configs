@@ -20,17 +20,16 @@
   },
   "commonConfig": {
     "screenshotEnabled": false,
-    "screenshotUidCoverEnabled": false,
+    "screenshotUidCoverEnabled": true,
     "exitToTray": false,
-    "currentThemeType": 0,
+    "currentThemeType": 1,
     "currentBackdropType": 2,
     "isFirstRun": false,
     "runForVersion": "0.61.2",
     "onceHadRunDeviceIdList": [
-      "WENYXY75Z0Z6T17NRZRGEBQ0FQX6TNVXJ51QWEBJYGYTQJCTM8DG",
       "TB3RWS4X29QWC6T12H59B0816XFVADA8XMYK71BM4WK3KHRCQVGG"
     ],
-    "redeemCodeFeedsUpdateVersion": "20260516\n"
+    "redeemCodeFeedsUpdateVersion": "20251013"
   },
   "genshinStartConfig": {
     "autoEnterGameEnabled": true,
@@ -60,13 +59,13 @@
     "dialogueOptionVoiceMaxWaitSeconds": 30,
     "beforeClickConfirmDelay": 0,
     "autoGetDailyRewardsEnabled": true,
-    "autoReExploreEnabled": false,
+    "autoReExploreEnabled": true,
     "autoReExploreCharacter": "",
     "clickChatOption": "优先选择第一个选项",
     "customPriorityOptionsEnabled": false,
     "customPriorityOptions": "",
-    "autoHangoutEventEnabled": true,
-    "autoHangoutEndChoose": "琳妮特结局1:大成功!",
+    "autoHangoutEventEnabled": false,
+    "autoHangoutEndChoose": "",
     "autoHangoutChooseOptionSleepDelay": 0,
     "autoHangoutPressSkipEnabled": true,
     "runBackgroundEnabled": false,
@@ -80,13 +79,13 @@
   "autoFishingConfig": {
     "enabled": false,
     "autoThrowRodEnabled": false,
-    "autoThrowRodTimeOut": 10,
+    "autoThrowRodTimeOut": 15,
     "wholeProcessTimeoutSeconds": 300,
     "fishingTimePolicy": 0,
     "torchDllFullPath": "C:\\torch\\lib\\torch_cpu.dll"
   },
   "quickTeleportConfig": {
-    "enabled": true,
+    "enabled": false,
     "teleportListClickDelay": 200,
     "waitTeleportPanelDelay": 50,
     "hotkeyTpEnabled": false
@@ -134,37 +133,37 @@
     "useWonderlandRefresh": true
   },
   "autoFightConfig": {
-    "strategyName": "冰水锄地",
+    "strategyName": "根据队伍自动选择",
     "teamNames": "",
     "fightFinishDetectEnabled": true,
-    "actionSchedulerByCd": "芙宁娜,20;茜特菈莉,16;爱可菲,15;枫原万叶,9",
+    "actionSchedulerByCd": "",
     "onlyPickEliteDropsMode": "Closed",
     "finishDetectConfig": {
       "battleEndProgressBarColor": "",
       "battleEndProgressBarColorTolerance": "",
-      "fastCheckEnabled": true,
-      "rotateFindEnemyEnabled": true,
-      "fastCheckParams": "1",
-      "checkEndDelay": "0.15",
+      "fastCheckEnabled": false,
+      "rotateFindEnemyEnabled": false,
+      "fastCheckParams": "",
+      "checkEndDelay": "0.4;钟离,1.4;",
       "beforeDetectDelay": "0.4",
-      "rotaryFactor": 10,
+      "rotaryFactor": 12,
       "isFirstCheck": false,
-      "checkBeforeBurst": true
+      "checkBeforeBurst": false
     },
     "pickDropsAfterFightEnabled": false,
-    "pickDropsAfterFightSeconds": 5,
+    "pickDropsAfterFightSeconds": 15,
     "battleThresholdForLoot": null,
     "kazuhaPickupEnabled": true,
     "qinDoublePickUp": false,
-    "guardianAvatar": "1",
-    "guardianCombatSkip": true,
+    "guardianAvatar": "",
+    "guardianCombatSkip": false,
     "skipModel": false,
     "guardianAvatarHold": false,
-    "burstEnabled": true,
+    "burstEnabled": false,
     "kazuhaPartyName": "",
-    "swimmingEnabled": false,
+    "swimmingEnabled": true,
     "expBasedPickupEnabled": false,
-    "timeout": 45
+    "timeout": 120
   },
   "autoMusicGameConfig": {
     "mustCanorusLevel": false,
@@ -173,12 +172,12 @@
   "autoDomainConfig": {
     "fightEndDelay": 5,
     "shortMovement": false,
-    "walkToF": false,
+    "walkToF": true,
     "leftRightMoveTimes": 3,
     "autoEat": false,
-    "partyName": "冰水锄地",
-    "domainName": "霜凝的机枢",
-    "autoArtifactSalvage": true,
+    "partyName": "",
+    "domainName": "",
+    "autoArtifactSalvage": false,
     "sundaySelectedValue": "",
     "specifyResinUse": false,
     "resinPriorityList": [
@@ -194,9 +193,9 @@
     "reviveRetryCount": 3
   },
   "autoStygianOnslaughtConfig": {
-    "strategyName": "冰水锄地",
-    "bossNum": 2,
-    "autoArtifactSalvage": true,
+    "strategyName": "",
+    "bossNum": 1,
+    "autoArtifactSalvage": false,
     "specifyResinUse": false,
     "resinPriorityList": [
       "浓缩树脂",
@@ -206,23 +205,23 @@
     "condensedResinUseCount": 0,
     "transientResinUseCount": 0,
     "fragileResinUseCount": 0,
-    "fightTeamName": "冰水锄地"
+    "fightTeamName": ""
   },
   "autoArtifactSalvageConfig": {
-    "javaScript": "(async function (artifact) {\r\n    var hasATK = Array.from(artifact.MinorAffixes).some(affix => affix.Type == 'ATK');\r\n    var hasDEF = Array.from(artifact.MinorAffixes).some(affix => affix.Type == 'DEF');\r\n    Output = hasATK && hasDEF;\r\n})(ArtifactStat);",
+    "javaScript": "var hasATK = Array.from(ArtifactStat.MinorAffixes).some(affix => affix.Type == 'ATK');\r\nvar hasDEF = Array.from(ArtifactStat.MinorAffixes).some(affix => affix.Type == 'DEF');\r\nvar hasHP = Array.from(ArtifactStat.MinorAffixes).some(affix => affix.Type == 'HP');\r\nOutput = (hasATK && hasDEF) || (hasHP && hasDEF);",
     "artifactSetFilter": "",
     "regularExpression": "(?=[\\S\\s]*攻击力\\+[\\d]*\\n)(?=[\\S\\s]*防御力\\+[\\d]*\\n)",
-    "maxArtifactStar": "3",
+    "maxArtifactStar": "4",
     "maxNumToCheck": 100,
     "recognitionFailurePolicy": 0
   },
   "autoEatConfig": {
-    "enabled": true,
+    "enabled": false,
     "showNotification": true,
     "checkInterval": 150,
     "eatInterval": 1000,
     "testFoodName": null,
-    "defaultAtkBoostingDishName": null,
+    "defaultAtkBoostingDishName": "炸萝卜丸子",
     "defaultAdventurersDishName": null,
     "defaultDefBoostingDishName": null
   },
@@ -279,7 +278,7 @@
   "mapMaskConfig": {
     "mapPointApiProvider": "MihoyoMap",
     "hoYoLabLanguage": "en-us",
-    "enabled": true,
+    "enabled": false,
     "miniMapMaskEnabled": false,
     "pathAutoRecordEnabled": false
   },
@@ -311,11 +310,11 @@
     "fFireInterval": 100,
     "fPressHoldToContinuationEnabled": false,
     "runaroundInterval": 10,
-    "runaroundMouseXInterval": 1000,
+    "runaroundMouseXInterval": 500,
     "spaceFireInterval": 100,
-    "spacePressHoldToContinuationEnabled": true,
+    "spacePressHoldToContinuationEnabled": false,
     "combatMacroEnabled": false,
-    "combatMacroHotkeyMode": "按住时重复",
+    "combatMacroHotkeyMode": "按住时重复(新)",
     "combatMacroPriority": 1
   },
   "recordConfig": {
@@ -325,32 +324,23 @@
   },
   "scriptConfig": {
     "autoUpdateScriptRepoPeriod": 1,
-    "lastUpdateScriptRepoTime": "2026-06-04T13:48:32.6664161+08:00",
-    "scriptRepoHintDotVisible": true,
+    "lastUpdateScriptRepoTime": "2026-06-07T11:53:40.0200911+08:00",
+    "scriptRepoHintDotVisible": false,
     "subscribedScriptPaths": [],
-    "selectedChannelName": "GitCode",
+    "selectedChannelName": "CNB",
     "customRepoUrl": "",
-    "webviewWidth": 1187.2,
-    "webviewHeight": 682.4000000000001,
-    "webviewLeft": 34.4,
-    "webviewTop": 94.4,
-    "webviewState": 0,
+    "webviewWidth": 1667,
+    "webviewHeight": 899,
+    "webviewLeft": 87.5,
+    "webviewTop": 62,
+    "webviewState": 1,
     "guideStatus": true,
-    "autoUpdateSubscribedScripts": true,
+    "autoUpdateSubscribedScripts": false,
     "autoUpdateBeforeCommandLineRun": false
   },
   "pathingConditionConfig": {
     "mapMatchingMethod": "TemplateMatch",
-    "partyConditions": [
-      {
-        "subject": "动作",
-        "predicate": "包含",
-        "object": [
-          "纳西妲采集"
-        ],
-        "result": "材料"
-      }
-    ],
+    "partyConditions": [],
     "avatarConditions": [
       {
         "subject": "队伍中角色",
@@ -396,9 +386,9 @@
     "autoFishingEnabledHotkeyType": "KeyboardMonitor",
     "autoGeniusInvokationHotkey": "",
     "autoGeniusInvokationHotkeyType": "KeyboardMonitor",
-    "autoPickEnabledHotkey": "F12",
+    "autoPickEnabledHotkey": "F8",
     "autoPickEnabledHotkeyType": "KeyboardMonitor",
-    "autoSkipEnabledHotkey": "F8",
+    "autoSkipEnabledHotkey": "F12",
     "autoSkipEnabledHotkeyType": "KeyboardMonitor",
     "autoSkipHangoutEnabledHotkey": "",
     "autoSkipHangoutEnabledHotkeyType": "KeyboardMonitor",
@@ -488,10 +478,10 @@
     "emailNotificationEnabled": false,
     "fromEmail": "",
     "fromName": "",
-    "includeScreenShot": false,
+    "includeScreenShot": true,
     "notificationEventSubscribe": "",
     "smtpPassword": "",
-    "smtpPort": 587,
+    "smtpPort": 0,
     "smtpServer": "",
     "smtpUsername": "",
     "feishuNotificationEnabled": false,
@@ -580,8 +570,8 @@
     "hideUI": 191
   },
   "otherConfig": {
-    "restoreFocusOnLostEnabled": true,
-    "autoFetchDispatchAdventurersGuildCountry": "枫丹",
+    "restoreFocusOnLostEnabled": false,
+    "autoFetchDispatchAdventurersGuildCountry": "无",
     "serverTimeZoneOffset": "08:00:00",
     "autoRestartConfig": {
       "enabled": false,
@@ -592,16 +582,16 @@
     },
     "farmingPlanConfig": {
       "miyousheDataConfig": {
-        "enabled": true,
+        "enabled": false,
         "dailyEliteCap": 400,
         "dailyMobCap": 2000
       },
-      "enabled": true,
+      "enabled": false,
       "dailyEliteCap": 400,
       "dailyMobCap": 2000
     },
     "miyousheConfig": {
-      "cookie": "MHYUUID=8e5bee99-49c1-43c6-94d6-2de3793ad905; DEVICEFP_SEED_ID=0150e6e938b72403; DEVICEFP_SEED_TIME=1776907502135; DEVICEFP=38d817adc83e7; MIHOYO_LOGIN_PLATFORM_LIFECYCLE_ID=6eb842d0f1; cookie_token_v2=v2_ARxDfc3H0NlW9SiSL3pE_Rk8CvDZUg8hd0IJQ9dDTpSg7fE5Iovxu4ywGWXnGRcpKOJAArIzakpiFXkf5vFBx82YBy3Pn2Aw3C3GCo-f3uRDFud-xYZvVwYkfz0QEAYKT_qt9zsyP4opLAzb3kA=.CAE=; account_mid_v2=0abujdg4iv_mhy; account_id_v2=306505906; ltoken_v2=v2_gCMt0qQm2LGfJkcCtmSMIRbM37BqzqMPNOaBFy_hWUi00Cy7RSGW1gPl0Nue5eDPfqkN9YTHEDXMzOMfcTDjo8whNPCjgW47d-ivBUGhUXwYbEQd21r-mJRGl95ijQW73aEY_s5soEcX0V2gMw==.CAE=; ltmid_v2=0abujdg4iv_mhy; ltuid_v2=306505906; cookie_token=GBwLiTLPIvmgdvY3pIbOruVkQ5nrzsiav16aLZRj; account_id=306505906; ltoken=zPOp1ZpBHc7rzvSkr3W3yvYZG97ZRdyMgOnaxU0n; ltuid=306505906",
+      "cookie": "",
       "logSyncCookie": true
     },
     "ocrConfig": {
@@ -617,35 +607,16 @@
     "stepIntervalMilliseconds": 20,
     "maxZoomLevel": 5,
     "minZoomLevel": 2,
-    "reviveStatueOfTheSevenPointX": 2294.501,
-    "reviveStatueOfTheSevenPointY": -826.3391,
+    "reviveStatueOfTheSevenPointX": 2296.4,
+    "reviveStatueOfTheSevenPointY": -824.4,
     "reviveStatueOfTheSevenArea": "道成林",
     "reviveStatueOfTheSevenCountry": "须弥",
-    "reviveStatueOfTheSeven": {
-      "id": "471",
-      "name": "七天神像-草",
-      "type": "Goddess",
-      "country": "须弥",
-      "tranPosition": [
-        -823.91797,
-        202.31915,
-        2297.883
-      ],
-      "tranX": 2297.883,
-      "tranY": -823.91797,
-      "position": [
-        -826.3391,
-        201.7562,
-        2294.501
-      ],
-      "x": 2294.501,
-      "y": -826.3391
-    },
+    "reviveStatueOfTheSeven": null,
     "hpRestoreDuration": 5,
     "tolerance": 200,
     "maxIterations": 30,
     "maxMouseMove": 300,
-    "mapScaleFactor": 2.661,
+    "mapScaleFactor": 2.361,
     "hasErrors": false
   },
   "devConfig": {
@@ -658,19 +629,17 @@
     "additionalPath": "",
     "optimizedModel": false,
     "cudaDevice": 0,
-    "autoAppendCudaPath": true,
+    "autoAppendCudaPath": false,
     "enableTensorRtCache": true,
     "embedTensorRtCache": true,
     "openVinoDevice": "AUTO:GPU,CPU",
-    "enableOpenVinoCache": true
+    "enableOpenVinoCache": false
   },
   "captureMode": "WindowsGraphicsCapture",
   "detailedErrorLogs": false,
   "notShowNewVersionNoticeEndVersion": "",
   "triggerInterval": 50,
   "autoFixWin11BitBlt": false,
-  "nextScheduledTask": [
-    {}
-  ],
+  "nextScheduledTask": [],
   "selectedOneDragonFlowConfigName": "默认配置"
 }
