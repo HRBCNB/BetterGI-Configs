@@ -5,10 +5,25 @@ Temp/
 # Pathing route data
 AutoPathing/
 
+# BetterGI runtime records
+**/records/
+
+# Logs
+logs/
+*.log
+
 # Common local/system artifacts
 .DS_Store
 Thumbs.db
-*.log
+Desktop.ini
 *.tmp
 *.temp
 *.swp
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
