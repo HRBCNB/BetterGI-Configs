@@ -100,7 +100,7 @@
       "jsScriptSettingsObject": {
         "ifCheck": "不查询收益",
         "CaiJiPartyName": "材料",
-        "ifMengde": "高效＆螃蟹模式",
+        "ifMengde": "高效模式",
         "ifLiyue": "高效＆螃蟹模式",
         "ifMonthcard": true,
         "ifDaoqi": "高效＆螃蟹模式",
@@ -109,7 +109,8 @@
         "ifNata": "高效＆螃蟹模式",
         "ifNDKL": "高效＆螃蟹模式",
         "stove": "蒙德炉子",
-        "ifMine": "不采集"
+        "ifMine": "不采集",
+        "ifingredientProcessing": false
       },
       "index": 1,
       "type": "Javascript",

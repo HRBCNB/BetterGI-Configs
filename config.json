@@ -1,5 +1,16 @@
 {
   "maskWindowConfig": {
+    "overlayMetricItems": {
+      "GameFps": true,
+      "ProcessingCost": true,
+      "PeakProcessingCost": true,
+      "CaptureCost": true,
+      "TriggerCost": false,
+      "SkippedTicks": true,
+      "GpuUsage": false,
+      "CpuUsage": false,
+      "MemoryUsage": true
+    },
     "directionsEnabled": false,
     "displayRecognitionResultsOnMask": true,
     "maskEnabled": true,
@@ -7,6 +18,7 @@
     "showStatus": true,
     "uidCoverEnabled": false,
     "showFps": false,
+    "showOverlayMetrics": false,
     "textOpacity": 1,
     "overlayLayoutEditEnabled": false,
     "logTextBoxLeftRatio": 0.010416666666666666,
@@ -16,20 +28,29 @@
     "statusListLeftRatio": 0.010416666666666666,
     "statusListTopRatio": 0.7314814814814815,
     "statusListWidthRatio": 0.25,
-    "statusListHeightRatio": 0.022222222222222223
+    "statusListHeightRatio": 0.022222222222222223,
+    "metricsLeftRatio": 0.010416666666666666,
+    "metricsTopRatio": 0.6888888888888889,
+    "metricsWidthRatio": 0.2484375,
+    "metricsHeightRatio": 0.053703703703703705
   },
   "commonConfig": {
     "screenshotEnabled": false,
     "screenshotUidCoverEnabled": true,
+    "rewardRecognitionScreenshotEnabled": false,
     "exitToTray": false,
-    "currentThemeType": 1,
+    "currentThemeType": 0,
     "currentBackdropType": 2,
     "isFirstRun": false,
-    "runForVersion": "0.61.2",
+    "runForVersion": "0.62.0",
     "onceHadRunDeviceIdList": [
-      "TB3RWS4X29QWC6T12H59B0816XFVADA8XMYK71BM4WK3KHRCQVGG"
+      "TB3RWS4X29QWC6T12H59B0816XFVADA8XMYK71BM4WK3KHRCQVGG",
+      "WENYXY75Z0Z6T17NRZRGEBQ0FQX6TNVXJ51QWEBJYGYTQJCTM8DG"
     ],
-    "redeemCodeFeedsUpdateVersion": "20251013"
+    "redeemCodeFeedsUpdateVersion": "20251013",
+    "redeemCodeCnFeedsNotificationEnabled": true,
+    "redeemCodeGlobalFeedsNotificationEnabled": false,
+    "redeemCodeGlobalFeedsUpdateVersion": ""
   },
   "genshinStartConfig": {
     "autoEnterGameEnabled": true,
@@ -69,7 +90,7 @@
     "autoHangoutChooseOptionSleepDelay": 0,
     "autoHangoutPressSkipEnabled": true,
     "runBackgroundEnabled": false,
-    "bringGameToFrontAfterBackgroundDialogEnabled": false,
+    "bringGameToFrontAfterBackgroundDialogEnabled": true,
     "submitGoodsEnabled": true,
     "pictureInPictureEnabled": false,
     "pictureInPictureSourceType": "CaptureLoop",
@@ -190,7 +211,20 @@
     "condensedResinUseCount": 0,
     "transientResinUseCount": 0,
     "fragileResinUseCount": 0,
-    "reviveRetryCount": 3
+    "reviveRetryCount": 3,
+    "rewardRecognitionEnabled": true
+  },
+  "autoBossConfig": {
+    "bossName": "",
+    "strategyName": "根据队伍自动选择",
+    "teamName": "",
+    "specifyRunCount": false,
+    "runCount": 1,
+    "useTransientResin": false,
+    "useFragileResin": false,
+    "reviveRetryCount": 3,
+    "returnToStatueAfterEachRound": false,
+    "rewardRecognitionEnabled": false
   },
   "autoStygianOnslaughtConfig": {
     "strategyName": "",
@@ -335,8 +369,8 @@
     "webviewTop": 62,
     "webviewState": 1,
     "guideStatus": true,
-    "autoUpdateSubscribedScripts": false,
-    "autoUpdateBeforeCommandLineRun": false
+    "autoUpdateSubscribedScripts": true,
+    "autoUpdateBeforeCommandLineRun": true
   },
   "pathingConditionConfig": {
     "mapMatchingMethod": "TemplateMatch",
@@ -454,7 +488,7 @@
     "mapMaskEnabledHotkeyType": "KeyboardMonitor"
   },
   "notificationConfig": {
-    "jsNotificationEnabled": false,
+    "jsNotificationEnabled": true,
     "barkAction": "",
     "barkApiEndpoint": "",
     "barkAutoCopy": "",
@@ -475,15 +509,15 @@
     "dingDingSecret": "",
     "dingDingwebhookNotificationEnabled": false,
     "dingdingWebhookUrl": "",
-    "emailNotificationEnabled": false,
-    "fromEmail": "",
-    "fromName": "",
-    "includeScreenShot": true,
-    "notificationEventSubscribe": "",
-    "smtpPassword": "",
-    "smtpPort": 0,
-    "smtpServer": "",
-    "smtpUsername": "",
+    "emailNotificationEnabled": true,
+    "fromEmail": "2379661143@qq.com",
+    "fromName": "bettergi通知",
+    "includeScreenShot": false,
+    "notificationEventSubscribe": "task.error,js.error",
+    "smtpPassword": "mfiaaotxmlkvdiac",
+    "smtpPort": 465,
+    "smtpServer": "smtp.qq.com",
+    "smtpUsername": "2379661143@qq.com",
     "feishuNotificationEnabled": false,
     "feishuWebhookUrl": "",
     "feishuAppId": "",
@@ -499,7 +533,7 @@
     "telegramBotToken": "",
     "telegramChatId": "",
     "telegramNotificationEnabled": false,
-    "toEmail": "",
+    "toEmail": "cnb.2002@outlook.com",
     "webhookEnabled": false,
     "webhookEndpoint": "",
     "webhookSendTo": "",
@@ -518,7 +552,10 @@
     "discordWebhookAvatarUrl": "https://img.alicdn.com/imgextra/i2/2042484851/O1CN01LQfLIG1lhoEZwz1Gt_!!2042484851.png",
     "discordWebhookImageEncoder": "Jpeg",
     "serverChanNotificationEnabled": false,
-    "serverChanSendKey": ""
+    "serverChanSendKey": "",
+    "meowNotificationEnabled": false,
+    "meowNickname": "",
+    "meowTitle": ""
   },
   "keyBindingsConfig": {
     "globalKeyMappingEnabled": false,
@@ -591,7 +628,7 @@
       "dailyMobCap": 2000
     },
     "miyousheConfig": {
-      "cookie": "",
+      "cookie": "MHYUUID=8e5bee99-49c1-43c6-94d6-2de3793ad905; DEVICEFP_SEED_ID=0150e6e938b72403; DEVICEFP_SEED_TIME=1776907502135; DEVICEFP=38d817adc83e7; MIHOYO_LOGIN_PLATFORM_LIFECYCLE_ID=6eb842d0f1; cookie_token_v2=v2_ARxDfc3H0NlW9SiSL3pE_Rk8CvDZUg8hd0IJQ9dDTpSg7fE5Iovxu4ywGWXnGRcpKOJAArIzakpiFXkf5vFBx82YBy3Pn2Aw3C3GCo-f3uRDFud-xYZvVwYkfz0QEAYKT_qt9zsyP4opLAzb3kA=.CAE=; account_mid_v2=0abujdg4iv_mhy; account_id_v2=306505906; ltoken_v2=v2_gCMt0qQm2LGfJkcCtmSMIRbM37BqzqMPNOaBFy_hWUi00Cy7RSGW1gPl0Nue5eDPfqkN9YTHEDXMzOMfcTDjo8whNPCjgW47d-ivBUGhUXwYbEQd21r-mJRGl95ijQW73aEY_s5soEcX0V2gMw==.CAE=; ltmid_v2=0abujdg4iv_mhy; ltuid_v2=306505906; cookie_token=GBwLiTLPIvmgdvY3pIbOruVkQ5nrzsiav16aLZRj; account_id=306505906; ltoken=zPOp1ZpBHc7rzvSkr3W3yvYZG97ZRdyMgOnaxU0n; ltuid=306505906",
       "logSyncCookie": true
     },
     "ocrConfig": {
@@ -607,11 +644,30 @@
     "stepIntervalMilliseconds": 20,
     "maxZoomLevel": 5,
     "minZoomLevel": 2,
-    "reviveStatueOfTheSevenPointX": 2296.4,
-    "reviveStatueOfTheSevenPointY": -824.4,
+    "reviveStatueOfTheSevenPointX": 2294.501,
+    "reviveStatueOfTheSevenPointY": -826.3391,
     "reviveStatueOfTheSevenArea": "道成林",
     "reviveStatueOfTheSevenCountry": "须弥",
-    "reviveStatueOfTheSeven": null,
+    "reviveStatueOfTheSeven": {
+      "id": "471",
+      "name": "七天神像-草",
+      "type": "Goddess",
+      "country": "须弥",
+      "tranPosition": [
+        -823.91797,
+        202.31915,
+        2297.883
+      ],
+      "tranX": 2297.883,
+      "tranY": -823.91797,
+      "position": [
+        -826.3391,
+        201.7562,
+        2294.501
+      ],
+      "x": 2294.501,
+      "y": -826.3391
+    },
     "hpRestoreDuration": 5,
     "tolerance": 200,
     "maxIterations": 30,
@@ -641,5 +697,5 @@
   "triggerInterval": 50,
   "autoFixWin11BitBlt": false,
   "nextScheduledTask": [],
-  "selectedOneDragonFlowConfigName": "默认配置"
+  "selectedOneDragonFlowConfigName": "晚上锄地"
 }
