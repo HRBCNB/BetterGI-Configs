@@ -122,7 +122,8 @@
         "TMthreshold": "0.9",
         "combatPartyName": "",
         "keep4Star": false,
-        "findFInterval": "100"
+        "findFInterval": "100",
+        "setTimeMode": "不调节时间"
       },
       "index": 2,
       "type": "Javascript",

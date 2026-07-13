@@ -9,7 +9,8 @@
     "狗粮pro": true,
     "好感度": true,
     "晶蝶": false,
-    "精油材料-青蛙": false
+    "精油材料-青蛙": false,
+    "禽肉获取-好感度": true
   },
   "Name": "默认配置",
   "CraftingBenchCountry": "枫丹",

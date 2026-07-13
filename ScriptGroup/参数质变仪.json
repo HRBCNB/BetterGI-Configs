@@ -1,9 +1,9 @@
 {
-  "index": 11,
+  "index": 9,
   "name": "参数质变仪",
   "config": {
     "pathingConfig": {
-      "enabled": true,
+      "enabled": false,
       "autoPickEnabled": true,
       "partyName": "周一",
       "isVisitStatueBeforeSwitchParty": false,
@@ -98,16 +98,18 @@
       "name": "全自动周一",
       "folderName": "AutoMonday",
       "jsScriptSettingsObject": {
-        "Material": "苹果",
+        "Material": "薄荷",
         "chargingMethod": "法器角色充能",
         "food": "提瓦特煎蛋",
+        "cookCount": "20",
         "mineral": "锻造水晶块",
         "ifZBY": true,
         "ifAkf": true,
+        "ifCheck": true,
         "TEAMname": "周一",
-        "ifYB": false,
         "ifCooking": true,
-        "ifCheck": true
+        "ifShouling": true,
+        "BossPartyName": "冰水锄地"
       },
       "index": 1,
       "type": "Javascript",

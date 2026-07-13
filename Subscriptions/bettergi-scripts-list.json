@@ -3,6 +3,7 @@
   "js/铁匠铺",
   "js/AAA-Artifacts-Bulk-Supply",
   "js/AbundantOre",
+  "js/AllFowlTeyvat",
   "js/AotoTeyvatFoodOneDragon",
   "js/AutoArtifactsSalvageOrDestroy（1-4star）",
   "js/AutoFishingTeyvat",
@@ -11,5 +12,6 @@
   "js/AutoInstructorLock",
   "js/AutoMonday",
   "js/AutoWoodcutting-Pathing",
+  "js/DailyHarvestStats",
   "js/DestroyArtifactsForMora"
 ]

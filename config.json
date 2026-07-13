@@ -62,7 +62,7 @@
     "autoDisableGenshinHdrEnabled": true
   },
   "autoPickConfig": {
-    "enabled": true,
+    "enabled": false,
     "itemIconLeftOffset": 60,
     "itemTextLeftOffset": 115,
     "itemTextRightOffset": 400,
@@ -154,7 +154,7 @@
     "useWonderlandRefresh": true
   },
   "autoFightConfig": {
-    "strategyName": "根据队伍自动选择",
+    "strategyName": "万能战斗策略（萌新推荐）",
     "teamNames": "",
     "fightFinishDetectEnabled": true,
     "actionSchedulerByCd": "",
@@ -183,8 +183,8 @@
     "burstEnabled": false,
     "kazuhaPartyName": "",
     "swimmingEnabled": true,
-    "expBasedPickupEnabled": false,
-    "timeout": 120
+    "expBasedPickupEnabled": true,
+    "timeout": 45
   },
   "autoMusicGameConfig": {
     "mustCanorusLevel": false,
@@ -358,16 +358,16 @@
   },
   "scriptConfig": {
     "autoUpdateScriptRepoPeriod": 1,
-    "lastUpdateScriptRepoTime": "2026-06-07T11:53:40.0200911+08:00",
+    "lastUpdateScriptRepoTime": "2026-07-13T12:13:01.5005349+08:00",
     "scriptRepoHintDotVisible": false,
     "subscribedScriptPaths": [],
     "selectedChannelName": "CNB",
     "customRepoUrl": "",
-    "webviewWidth": 1667,
-    "webviewHeight": 899,
-    "webviewLeft": 87.5,
-    "webviewTop": 62,
-    "webviewState": 1,
+    "webviewWidth": 1293.7777777777776,
+    "webviewHeight": 764.8888888888888,
+    "webviewLeft": 83.1111111111111,
+    "webviewTop": 87.55555555555556,
+    "webviewState": 0,
     "guideStatus": true,
     "autoUpdateSubscribedScripts": true,
     "autoUpdateBeforeCommandLineRun": true
