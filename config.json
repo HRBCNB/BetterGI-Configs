@@ -358,8 +358,8 @@
   },
   "scriptConfig": {
     "autoUpdateScriptRepoPeriod": 1,
-    "lastUpdateScriptRepoTime": "2026-07-13T12:13:01.5005349+08:00",
-    "scriptRepoHintDotVisible": false,
+    "lastUpdateScriptRepoTime": "2026-07-14T09:47:24.562713+08:00",
+    "scriptRepoHintDotVisible": true,
     "subscribedScriptPaths": [],
     "selectedChannelName": "CNB",
     "customRepoUrl": "",
@@ -691,11 +691,11 @@
     "openVinoDevice": "AUTO:GPU,CPU",
     "enableOpenVinoCache": false
   },
-  "captureMode": "WindowsGraphicsCapture",
+  "captureMode": "BitBlt",
   "detailedErrorLogs": false,
   "notShowNewVersionNoticeEndVersion": "",
   "triggerInterval": 50,
-  "autoFixWin11BitBlt": false,
+  "autoFixWin11BitBlt": true,
   "nextScheduledTask": [],
   "selectedOneDragonFlowConfigName": "晚上锄地"
 }
