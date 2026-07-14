@@ -99,7 +99,12 @@
       "folderName": "铁匠铺",
       "jsScriptSettingsObject": {
         "model": "模式一",
-        "smithyName": "蒙德铁匠铺"
+        "smithyName": "蒙德铁匠铺",
+        "forgedOrNot": "是",
+        "CondessenceCrystal": "1",
+        "CrystalChunk": "2",
+        "AmethystLump": "3",
+        "RainbowdropCrystal": "4"
       },
       "index": 1,
       "type": "Javascript",

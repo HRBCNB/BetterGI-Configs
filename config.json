@@ -62,7 +62,7 @@
     "autoDisableGenshinHdrEnabled": true
   },
   "autoPickConfig": {
-    "enabled": false,
+    "enabled": true,
     "itemIconLeftOffset": 60,
     "itemTextLeftOffset": 115,
     "itemTextRightOffset": 400,
@@ -106,7 +106,7 @@
     "torchDllFullPath": "C:\\torch\\lib\\torch_cpu.dll"
   },
   "quickTeleportConfig": {
-    "enabled": false,
+    "enabled": true,
     "teleportListClickDelay": 200,
     "waitTeleportPanelDelay": 50,
     "hotkeyTpEnabled": false
@@ -358,7 +358,7 @@
   },
   "scriptConfig": {
     "autoUpdateScriptRepoPeriod": 1,
-    "lastUpdateScriptRepoTime": "2026-07-14T09:47:24.562713+08:00",
+    "lastUpdateScriptRepoTime": "2026-07-14T20:09:13.5320576+08:00",
     "scriptRepoHintDotVisible": true,
     "subscribedScriptPaths": [],
     "selectedChannelName": "CNB",
@@ -608,22 +608,22 @@
   },
   "otherConfig": {
     "restoreFocusOnLostEnabled": false,
-    "autoFetchDispatchAdventurersGuildCountry": "无",
+    "autoFetchDispatchAdventurersGuildCountry": "枫丹",
     "serverTimeZoneOffset": "08:00:00",
     "autoRestartConfig": {
-      "enabled": false,
+      "enabled": true,
       "failureCount": 5,
-      "restartGameTogether": false,
-      "isFightFailureExceptional": false,
+      "restartGameTogether": true,
+      "isFightFailureExceptional": true,
       "isPathingFailureExceptional": false
     },
     "farmingPlanConfig": {
       "miyousheDataConfig": {
-        "enabled": false,
+        "enabled": true,
         "dailyEliteCap": 400,
         "dailyMobCap": 2000
       },
-      "enabled": false,
+      "enabled": true,
       "dailyEliteCap": 400,
       "dailyMobCap": 2000
     },
@@ -697,5 +697,5 @@
   "triggerInterval": 50,
   "autoFixWin11BitBlt": true,
   "nextScheduledTask": [],
-  "selectedOneDragonFlowConfigName": "晚上锄地"
+  "selectedOneDragonFlowConfigName": "默认配置"
 }
